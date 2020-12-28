@@ -40,7 +40,9 @@ namespace WinDFF
             this.toolStripFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButtonEdit = new System.Windows.Forms.ToolStripDropDownButton();
             this.editScanParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.winDFFParametersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButtonView = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripViewDriveInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButtonHelp = new System.Windows.Forms.ToolStripDropDownButton();
             this.generalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +51,9 @@ namespace WinDFF
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripViewDriveInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnRebuildList = new System.Windows.Forms.Button();
+            this.toolStripFileSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripFileSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ADGView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -85,6 +89,8 @@ namespace WinDFF
             this.toolStripDropDownButtonFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripFileOpen,
             this.toolStripFileScanShell,
+            this.toolStripFileSave,
+            this.toolStripFileSaveAs,
             this.toolStripFileExit});
             this.toolStripDropDownButtonFile.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonFile.Image")));
             this.toolStripDropDownButtonFile.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -117,7 +123,8 @@ namespace WinDFF
             // 
             this.toolStripDropDownButtonEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButtonEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editScanParametersToolStripMenuItem});
+            this.editScanParametersToolStripMenuItem,
+            this.winDFFParametersToolStripMenuItem});
             this.toolStripDropDownButtonEdit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButtonEdit.Image")));
             this.toolStripDropDownButtonEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButtonEdit.Name = "toolStripDropDownButtonEdit";
@@ -127,9 +134,16 @@ namespace WinDFF
             // editScanParametersToolStripMenuItem
             // 
             this.editScanParametersToolStripMenuItem.Name = "editScanParametersToolStripMenuItem";
-            this.editScanParametersToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.editScanParametersToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
             this.editScanParametersToolStripMenuItem.Text = "Scan Parameters";
             this.editScanParametersToolStripMenuItem.Click += new System.EventHandler(this.editScanParametersToolStripMenuItem_Click);
+            // 
+            // winDFFParametersToolStripMenuItem
+            // 
+            this.winDFFParametersToolStripMenuItem.Name = "winDFFParametersToolStripMenuItem";
+            this.winDFFParametersToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.winDFFParametersToolStripMenuItem.Text = "WinDFF Parameters";
+            this.winDFFParametersToolStripMenuItem.Click += new System.EventHandler(this.winDFFParametersToolStripMenuItem_Click);
             // 
             // toolStripDropDownButtonView
             // 
@@ -141,6 +155,13 @@ namespace WinDFF
             this.toolStripDropDownButtonView.Name = "toolStripDropDownButtonView";
             this.toolStripDropDownButtonView.Size = new System.Drawing.Size(57, 25);
             this.toolStripDropDownButtonView.Text = "View";
+            // 
+            // toolStripViewDriveInfo
+            // 
+            this.toolStripViewDriveInfo.Name = "toolStripViewDriveInfo";
+            this.toolStripViewDriveInfo.Size = new System.Drawing.Size(148, 26);
+            this.toolStripViewDriveInfo.Text = "Drive Info";
+            this.toolStripViewDriveInfo.Click += new System.EventHandler(this.toolStripViewDriveInfo_Click);
             // 
             // toolStripDropDownButtonHelp
             // 
@@ -157,14 +178,14 @@ namespace WinDFF
             // generalToolStripMenuItem
             // 
             this.generalToolStripMenuItem.Name = "generalToolStripMenuItem";
-            this.generalToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.generalToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
             this.generalToolStripMenuItem.Text = "General";
             this.generalToolStripMenuItem.Click += new System.EventHandler(this.generalToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -209,12 +230,31 @@ namespace WinDFF
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // toolStripViewDriveInfo
+            // BtnRebuildList
             // 
-            this.toolStripViewDriveInfo.Name = "toolStripViewDriveInfo";
-            this.toolStripViewDriveInfo.Size = new System.Drawing.Size(180, 26);
-            this.toolStripViewDriveInfo.Text = "Drive Info";
-            this.toolStripViewDriveInfo.Click += new System.EventHandler(this.toolStripViewDriveInfo_Click);
+            this.BtnRebuildList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRebuildList.Location = new System.Drawing.Point(775, 31);
+            this.BtnRebuildList.Name = "BtnRebuildList";
+            this.BtnRebuildList.Size = new System.Drawing.Size(188, 34);
+            this.BtnRebuildList.TabIndex = 7;
+            this.BtnRebuildList.Text = "Rebuild List";
+            this.BtnRebuildList.UseVisualStyleBackColor = true;
+            this.BtnRebuildList.Visible = false;
+            this.BtnRebuildList.Click += new System.EventHandler(this.BtnRebuildList_Click);
+            // 
+            // toolStripFileSave
+            // 
+            this.toolStripFileSave.Name = "toolStripFileSave";
+            this.toolStripFileSave.Size = new System.Drawing.Size(180, 26);
+            this.toolStripFileSave.Text = "Save";
+            this.toolStripFileSave.Click += new System.EventHandler(this.toolStripFileSave_Click);
+            // 
+            // toolStripFileSaveAs
+            // 
+            this.toolStripFileSaveAs.Name = "toolStripFileSaveAs";
+            this.toolStripFileSaveAs.Size = new System.Drawing.Size(180, 26);
+            this.toolStripFileSaveAs.Text = "Save As";
+            this.toolStripFileSaveAs.Click += new System.EventHandler(this.toolStripFileSaveAs_Click);
             // 
             // WinDFF
             // 
@@ -222,6 +262,7 @@ namespace WinDFF
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(994, 493);
+            this.Controls.Add(this.BtnRebuildList);
             this.Controls.Add(this.ADGView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.labelFileList);
@@ -262,6 +303,10 @@ namespace WinDFF
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripViewDriveInfo;
+        private System.Windows.Forms.ToolStripMenuItem winDFFParametersToolStripMenuItem;
+        private System.Windows.Forms.Button BtnRebuildList;
+        private System.Windows.Forms.ToolStripMenuItem toolStripFileSave;
+        private System.Windows.Forms.ToolStripMenuItem toolStripFileSaveAs;
     }
 }
 
